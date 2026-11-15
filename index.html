@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Siva Mareedu: Lead Software Engineer, .NET and distributed systems</title>
-<meta name="description" content="Lead Software Engineer with 9+ years building enterprise backend systems in C#, .NET, AWS, Kafka and Kubernetes. Founder of TailorlyRemote.">
+<title>Tailorly Remote: remote jobs open to India, and a résumé tailored to each</title>
+<meta name="description" content="Your daily shortlist of remote roles, and the résumé to win them. Remote jobs open to candidates in India, explained matches, and format-preserving résumé tailoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,25 +13,32 @@
     --bg: #f7faf8; --surface: #ffffff; --surface-2: #eaf3ee; --border: #d5e3db;
     --text: #16150f; --muted: #5f5c52;
     --accent: #0e7a53; --accent-hover: #0b6544; --accent-soft: rgba(14,122,83,.10); --on-accent: #ffffff;
-    --ink: #14130f; --ink-text: #eceae1; --ink-muted: #a3a093; --ink-line: #2a2922; --ink-card: #1b1a15; --signal: #3ddc97;
+    --amber: #9a5f00; --red: #b3362f;
+    --ink: #14130f; --ink-text: #eceae1; --ink-muted: #a3a093; --ink-line: #2a2922; --ink-card: #1b1a15; --signal: #3ddc97; --signal-soft: rgba(61,220,151,.12);
+    --diff-add: rgba(61,220,151,.14); --diff-del: rgba(240,138,130,.14);
     --shadow: 0 1px 2px rgba(22,21,15,.05), 0 12px 32px rgba(22,21,15,.07);
-    --ring: rgba(14,122,83,.38); color-scheme: light;
+    --ring: rgba(14,122,83,.38);
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0f100d; --surface: #171813; --surface-2: #1e1f19; --border: #2b2c24;
       --text: #eeede6; --muted: #a09e91;
       --accent: #3ddc97; --accent-hover: #6ae8b1; --accent-soft: rgba(61,220,151,.12); --on-accent: #0b1a12;
+      --amber: #f0b44c; --red: #f08a82;
       --ink: #0a0b09; --ink-line: #1d1e19; --ink-card: #11120e;
-      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35); --ring: rgba(61,220,151,.45); color-scheme: dark;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35);
+      --ring: rgba(61,220,151,.45); color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
     --bg: #0f100d; --surface: #171813; --surface-2: #1e1f19; --border: #2b2c24;
     --text: #eeede6; --muted: #a09e91;
     --accent: #3ddc97; --accent-hover: #6ae8b1; --accent-soft: rgba(61,220,151,.12); --on-accent: #0b1a12;
+    --amber: #f0b44c; --red: #f08a82;
     --ink: #0a0b09; --ink-line: #1d1e19; --ink-card: #11120e;
-    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35); --ring: rgba(61,220,151,.45); color-scheme: dark;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35);
+    --ring: rgba(61,220,151,.45); color-scheme: dark;
   }
   :root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
   html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); scroll-behavior: smooth; }
@@ -41,111 +48,128 @@
   .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 5px; }
-  h1, h2, h3, h4, p { margin: 0; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, p { margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
   header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
-  .bar { height: 60px; display: flex; align-items: center; gap: 16px; }
-  .me { font-weight: 600; letter-spacing: -.01em; color: var(--text); }
-  .me:hover { text-decoration: none; }
-  .me span { color: var(--accent); font-family: "IBM Plex Mono", monospace; font-weight: 500; margin-right: 6px; }
-  nav { display: flex; gap: 2px; margin-left: auto; align-items: center; }
+  .bar { height: 64px; display: flex; align-items: center; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; letter-spacing: -.01em; color: var(--text); }
+  .brand:hover { text-decoration: none; }
+  .brand .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--accent); background: var(--accent-soft); padding: 1px 7px; border-radius: 4px; font-weight: 500; }
+  nav { display: flex; gap: 4px; margin-left: auto; align-items: center; }
   nav a { color: var(--muted); padding: 8px 12px; border-radius: 8px; font-size: 15px; font-weight: 500; }
   nav a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
-  .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--border); background: transparent; color: var(--muted); border-radius: 8px; cursor: pointer; margin-left: 6px; }
+  .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--border); background: transparent; color: var(--muted); border-radius: 8px; cursor: pointer; }
   .icon-btn:hover { color: var(--text); background: var(--surface-2); }
-  .btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 10px 16px; border-radius: 9px; font: inherit; font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 11px 18px; border-radius: 9px; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
   .btn:hover { background: var(--surface-2); text-decoration: none; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
   .btn.primary:hover { background: var(--accent-hover); }
+  .btn.sm { padding: 8px 14px; font-size: 14px; }
 
-  .hero { padding-top: 72px; padding-bottom: 56px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: start; }
-  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-  h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.05; letter-spacing: -.035em; font-weight: 600; margin-bottom: 14px; }
-  .role { font-size: 20px; color: var(--muted); margin-bottom: 20px; }
-  .lede { font-size: 17.5px; max-width: 58ch; margin-bottom: 26px; }
-  .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
-  .facts { display: grid; gap: 14px; }
-  .facts .k { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
-  .facts .v { font-weight: 500; }
+  .hero { padding-top: 72px; padding-bottom: 64px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--accent); background: var(--accent-soft); padding: 4px 12px; border-radius: 999px; margin-bottom: 20px; }
+  .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  h1 { font-size: clamp(34px, 4.6vw, 54px); line-height: 1.08; letter-spacing: -.035em; font-weight: 600; margin-bottom: 20px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede { color: var(--muted); font-size: 18px; max-width: 54ch; margin-bottom: 28px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .fine { font-size: 13px; color: var(--muted); margin-top: 14px; }
 
-  .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
-  .stats .wrap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; padding-top: 28px; padding-bottom: 28px; }
-  .stat b { display: block; font-family: "IBM Plex Mono", monospace; font-size: 26px; font-weight: 600; color: var(--accent); line-height: 1.1; }
-  .stat span { color: var(--muted); font-size: 14px; }
+  .example { background: var(--ink); color: var(--ink-text); border: 1px solid var(--ink-line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  .ex-head { display: flex; justify-content: space-between; padding: 10px 18px; border-bottom: 1px solid var(--ink-line); font-size: 12.5px; color: var(--ink-muted); }
+  .ex-body { padding: 18px; display: grid; gap: 16px; background: var(--ink-card); }
+  .ex-row { display: grid; grid-template-columns: 36px 1fr; gap: 12px; }
+  .ex-score { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; color: var(--signal); line-height: 1.05; }
+  .ex-title { font-weight: 600; font-size: 17px; letter-spacing: -.01em; }
+  .ex-sub { color: var(--ink-muted); font-size: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--ink-line); color: var(--ink-muted); }
+  .chip.ok { color: var(--signal); background: var(--signal-soft); border-color: transparent; }
+  .diff { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; line-height: 1.6; border: 1px solid var(--ink-line); border-radius: 8px; overflow: hidden; }
+  .diff div { padding: 4px 12px; overflow-wrap: anywhere; }
+  .diff .del { background: var(--diff-del); } .diff .add { background: var(--diff-add); }
+  .diff .sign { color: var(--ink-muted); margin-right: 8px; user-select: none; }
+  .ats { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-muted); }
+  .ats b { color: var(--signal); font-family: "IBM Plex Mono", monospace; }
+  .bar2 { height: 5px; border-radius: 9px; background: var(--ink-line); overflow: hidden; margin-top: 6px; }
+  .bar2 i { display: block; height: 100%; width: 81%; background: var(--signal); border-radius: 9px; }
+  .ex-note { font-size: 12.5px; color: var(--ink-muted); }
 
-  section { padding: 72px 0; }
-  h2 { font-size: clamp(26px, 3vw, 34px); line-height: 1.15; letter-spacing: -.025em; font-weight: 600; margin-bottom: 12px; }
-  .sub { color: var(--muted); font-size: 17px; max-width: 64ch; margin-bottom: 32px; }
+  .sourcesbar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+  .sourcesbar .wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 18px; padding-bottom: 18px; color: var(--muted); font-size: 15px; }
+  .sourcesbar b { color: var(--text); font-weight: 600; }
+  .sourcesbar a { font-weight: 600; }
 
-  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .impact h3 { font-size: 17px; letter-spacing: -.01em; margin-bottom: 6px; }
-  .impact .metric { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-weight: 600; font-size: 15px; margin-bottom: 8px; display: block; }
-  .impact p { color: var(--muted); font-size: 15.5px; }
-  .role-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; margin-bottom: 10px; }
-  .role-head h3 { font-size: 22px; letter-spacing: -.015em; }
-  .role-head .when { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); }
-  .company { color: var(--muted); margin-bottom: 18px; max-width: 70ch; }
-  .earlier { margin-top: 40px; display: grid; gap: 0; }
-  .earlier .row { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--border); }
-  .earlier .row:last-child { border-bottom: 1px solid var(--border); }
-  .earlier .when { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--muted); padding-top: 3px; }
-  .earlier h4 { font-size: 16.5px; margin-bottom: 4px; }
-  .earlier p { color: var(--muted); font-size: 15.5px; }
+  section { padding: 80px 0; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.15; letter-spacing: -.025em; font-weight: 600; margin-bottom: 14px; max-width: 24ch; }
+  .sub { color: var(--muted); font-size: 18px; max-width: 60ch; margin-bottom: 40px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+  .step .n { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-weight: 600; font-size: 14px; margin-bottom: 12px; display: block; }
+  .step h3 { font-size: 19px; margin-bottom: 8px; letter-spacing: -.01em; }
+  .step p { color: var(--muted); font-size: 15.5px; }
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feat { padding: 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+  .feat .k { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); background: var(--accent-soft); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px; }
+  .feat h3 { font-size: 18px; margin-bottom: 8px; letter-spacing: -.01em; }
+  .feat p { color: var(--muted); font-size: 15.5px; }
+  .band { background: var(--ink); color: var(--ink-text); }
+  .band .eyebrow { color: var(--signal); }
+  .band .sub { color: var(--ink-muted); }
+  .trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .trust div { border: 1px solid var(--ink-line); background: var(--ink-card); border-radius: 14px; padding: 24px; }
+  .trust h3 { font-size: 18px; margin-bottom: 8px; }
+  .trust p { color: var(--ink-muted); font-size: 15.5px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  ul.tick { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ul.tick li { display: flex; gap: 12px; color: var(--text); }
+  ul.tick li::before { content: "✓"; color: var(--accent); font-weight: 700; flex: none; }
+  .credit { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; display: grid; gap: 14px; }
+  .credit h3 { font-size: 18px; }
+  .credit p { color: var(--muted); font-size: 15.5px; }
+  .credit .src { display: flex; flex-wrap: wrap; gap: 8px; }
+  .credit .src a { border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-weight: 600; font-size: 14.5px; background: var(--bg); }
+  details { border-bottom: 1px solid var(--border); padding: 18px 0; }
+  details:first-of-type { border-top: 1px solid var(--border); }
+  summary { cursor: pointer; font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::after { content: "+"; color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--muted); margin-top: 10px; max-width: 70ch; }
+  .final { text-align: center; }
+  .final h2 { margin-left: auto; margin-right: auto; max-width: 20ch; }
+  .final .sub { margin-left: auto; margin-right: auto; }
+  .final .cta { justify-content: center; }
+  footer { border-top: 1px solid var(--border); padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--muted); } footer a:hover { color: var(--text); }
 
-  .project { background: var(--ink); color: var(--ink-text); }
-  .project .eyebrow { color: var(--signal); }
-  .project h2 { color: var(--ink-text); }
-  .project .sub { color: var(--ink-muted); }
-  .pgrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 32px; align-items: start; }
-  .project ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-  .project li { display: flex; gap: 12px; color: var(--ink-text); }
-  .project li::before { content: "›"; color: var(--signal); font-family: "IBM Plex Mono", monospace; flex: none; }
-  .pbox { border: 1px solid var(--ink-line); background: var(--ink-card); border-radius: 14px; padding: 22px; display: grid; gap: 18px; }
-  .pbox h3 { font-family: "IBM Plex Mono", monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-muted); font-weight: 500; margin-bottom: 8px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--border); color: var(--text); background: var(--surface); }
-  .project .chip { border-color: var(--ink-line); color: var(--ink-text); background: transparent; }
-  .project .btn { background: transparent; color: var(--ink-text); border-color: var(--ink-line); }
-  .project .btn:hover { background: var(--ink-line); }
-  .project .btn.primary { background: var(--signal); border-color: var(--signal); color: #0b1a12; }
-  .project .btn.primary:hover { background: #6ae8b1; }
-  .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .skill-grid h3 { font-size: 15px; margin-bottom: 12px; letter-spacing: 0; }
-  .edu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .edu h3 { font-size: 17px; margin-bottom: 4px; }
-  .edu p { color: var(--muted); font-size: 15.5px; }
-  .contact { text-align: center; }
-  .contact h2 { margin-left: auto; margin-right: auto; }
-  .contact .sub { margin-left: auto; margin-right: auto; }
-  .contact .cta { justify-content: center; }
-  footer { border-top: 1px solid var(--border); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
-  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-
-  @media (max-width: 860px) {
-    .hero, .pgrid { grid-template-columns: 1fr; gap: 28px; }
-    .hero { padding-top: 44px; }
-    .stats .wrap { grid-template-columns: repeat(2, 1fr); }
-    .grid2, .skill-grid, .edu { grid-template-columns: 1fr; }
-    .earlier .row { grid-template-columns: 1fr; gap: 4px; }
-    nav a:not(.keep) { display: none; }
-    section { padding: 52px 0; }
+  @media (max-width: 920px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 44px; }
+    .steps, .features { grid-template-columns: 1fr; }
+    .trust { grid-template-columns: 1fr; }
+    .two { grid-template-columns: 1fr; gap: 32px; }
+    nav a:not(.btn) { display: none; }
+    section { padding: 56px 0; }
   }
-  @media print { header, .icon-btn { display: none; } body { background: #fff; } .project { background: #fff; color: #000; } }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap bar">
-    <a class="me" href="#top"><span>&gt;</span>Siva Mareedu</a>
+    <a class="brand" href="#top" aria-label="Tailorly Remote home">
+      <svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="6" fill="var(--accent)"/><path d="M8 9h12M14 9v11" stroke="var(--on-accent)" stroke-width="2.4" stroke-linecap="round"/><path d="M8 21h12" stroke="var(--on-accent)" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2 3"/></svg>
+      <span>Tailorly</span><span class="tag">remote</span>
+    </a>
     <nav aria-label="Main">
-      <a href="#experience">Experience</a>
-      <a href="#project">TailorlyRemote</a>
-      <a href="#skills">Skills</a>
-      <a class="keep" href="#contact">Contact</a>
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#sources">Sources</a>
+      <a href="#faq">FAQ</a>
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light and dark theme"><svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button>
+      <a class="btn primary sm" href="https://professional.tailorlyremote.com" rel="noopener">Sign in</a>
     </nav>
   </div>
 </header>
@@ -153,118 +177,144 @@
 <main id="top">
   <div class="wrap hero">
     <div>
-      <div class="eyebrow">Lead Software Engineer</div>
-      <h1>Siva Mareedu</h1>
-      <p class="role">.NET and distributed systems · AWS · technical leadership</p>
-      <p class="lede">I have spent 9+ years building and modernizing enterprise backend systems in C#, .NET, AWS, Kafka and Kubernetes. I lead an 11-engineer team delivering cloud-native, event-driven services for a critical communications platform, and I built and launched TailorlyRemote, an AI-assisted job-matching platform that is live in production.</p>
+      <div class="pill"><i></i>Invite-only beta</div>
+      <h1>Your daily shortlist of <em>remote roles</em>, and the résumé to win them.</h1>
+      <p class="lede">Tailorly Remote finds remote jobs that are actually open to candidates in India, explains why each one fits, and tailors your Word résumé to each job without breaking its formatting or inventing a single fact.</p>
       <div class="cta">
-        <a class="btn primary" href="#project">See TailorlyRemote</a>
-        <a class="btn" href="mailto:shiv.mareedu@gmail.com">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/in/sivamareedu" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/siva-mareedu-fd" rel="noopener">GitHub ↗</a>
+        <a class="btn primary" href="https://professional.tailorlyremote.com" rel="noopener">Sign in</a>
+        <a class="btn" href="mailto:shiv.mareedu@tailorlyremote.com?subject=Tailorly%20Remote%20invite%20request">Ask for an invite</a>
       </div>
+      <p class="fine">Built for developers in India looking for remote roles. Your résumé is never shown to anyone else.</p>
     </div>
-    <aside class="card facts" aria-label="At a glance">
-      <div><div class="k">Based in</div><div class="v">Hyderabad, India · works remotely</div></div>
-      <div><div class="k">Current role</div><div class="v">Lead Software Engineer, Crisis24 (OnSolve), since Jul 2022</div></div>
-      <div><div class="k">Certification</div><div class="v">AWS Certified Developer – Associate</div></div>
-      <div><div class="k">Focus</div><div class="v">Architecture, high-throughput processing, reliability, mentoring</div></div>
-    </aside>
-  </div>
-
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><b>9+</b><span>years of experience</span></div>
-      <div class="stat"><b>11</b><span>engineers led</span></div>
-      <div class="stat"><b>3,500+</b><span>organizations on the platform</span></div>
-      <div class="stat"><b>99.99%</b><span>availability SLA</span></div>
-      <div class="stat"><b>150K</b><span>notifications in five minutes, at peak</span></div>
-    </div>
-  </div>
-
-  <section id="experience">
-    <div class="wrap">
-      <div class="eyebrow">Experience</div>
-      <h2>Crisis24 (OnSolve): leading the move from monolith to microservices</h2>
-      <p class="sub">Technical lead for Team Titan (11 engineers) on the phased modernization of a Java monolith into .NET microservices on AWS EKS and Kafka. The platform supports 3,500+ organizations, nine notification modalities, a 99.99% availability SLA, and up to 150K notifications in five minutes.</p>
-      <div class="role-head"><h3>Lead Software Engineer</h3><span class="when">Jul 2022 – Present · Remote</span></div>
-      <div class="grid2">
-        <div class="card impact"><h3>Memory and scalability</h3><span class="metric">20 → 12 pods · memory ~90% → ~36%</span><p>Diagnosed high-memory analytics and reporting workloads and reduced buffering with streamed HTTP response processing, cutting the deployment by 40% at comparable throughput.</p></div>
-        <div class="card impact"><h3>Reusable messaging libraries</h3><span class="metric">Up to 1.5K requests/sec per pod</span><p>Built shared Kafka consumer and resilience libraries for bounded concurrent processing, retries and reliable event handling. Adopted by multiple services: 5 Kafka consumers and 12 resilience-library consumers.</p></div>
-        <div class="card impact"><h3>Throttling and backpressure</h3><span class="metric">~1,000 requests/sec sustained</span><p>Designed SQS-backed asynchronous HTTP delivery with Valkey-based distributed rate limiting, controlled retries and dead-letter queues to handle downstream 429 responses.</p></div>
-        <div class="card impact"><h3>Billing correctness</h3><span class="metric">Billed units down 26% · 36% · 41%</span><p>Found duplicate billing records caused by concurrent scheduled and consumer processing, then added deduplication and concurrency safeguards. Audit queries and reconciliation reports showed billed units falling 26% (emergency minutes), 36% (SMS) and 41% (general minutes, one affected organization).</p></div>
-        <div class="card impact"><h3>Exports</h3><span class="metric">150 MB → 500 MB (~3.3x)</span><p>Modernized the legacy export system to support larger output within the same three-minute processing window.</p></div>
-        <div class="card impact"><h3>CI/CD and reliability</h3><span class="metric">GitLab · SonarQube · Veracode · Helm</span><p>Helped establish automated build, test, SonarQube and Veracode gates and Helm deployments to EKS. Troubleshot production incidents using Datadog, OpenSearch, CloudWatch and Kubernetes diagnostics.</p></div>
-        <div class="card impact"><h3>Architecture and delivery</h3><span class="metric">Billing · analytics · exports · self-registration</span><p>Led technical design and development across billing, analytics, exports, self-registration and HTTP integrations. Defined API contracts, reviewed solutions, estimated epics and coordinated cross-team dependencies.</p></div>
-        <div class="card impact"><h3>Leadership and mentoring</h3><span class="metric">Integration Lead</span><p>Led architecture discussions and code reviews, and gave technical guidance on estimates and blockers. Mentored engineers, including one who joined as a Software Engineer and was promoted to Lead Software Engineer.</p></div>
-      </div>
-
-      <div class="earlier">
-        <div class="row"><div class="when">Dec 2020 – Jul 2022<br>Hyderabad</div><div><h4>Lead Consultant, Technology · Virtusa Consulting Services</h4><p>Built .NET Core microservices and event-driven AWS integrations; supported Docker and Kubernetes deployments, CI/CD and team engineering practices.</p></div></div>
-        <div class="row"><div class="when">Nov 2019 – Sep 2020<br>Hyderabad</div><div><h4>Contractor · NTT Data Global Delivery Services</h4><p>Developed .NET Core services, Azure integrations and Kafka-based asynchronous workflows; contributed unit tests and CI workflows.</p></div></div>
-        <div class="row"><div class="when">Jun 2018 – Nov 2019<br>Hyderabad</div><div><h4>Senior Software Developer · Artech Infosystems</h4><p>Built REST and WCF services integrating RabbitMQ and IBM MQ; optimized SQL queries and stored procedures.</p></div></div>
-        <div class="row"><div class="when">Dec 2016 – Jun 2018<br>Hyderabad</div><div><h4>Developer · HCL Technologies</h4><p>Developed and supported ASP.NET and WCF applications and SQL Server procedures, including production defect resolution.</p></div></div>
-        <div class="row"><div class="when">2013 – 2016</div><div><h4>Co-founder · Broadband services business</h4><p>Co-founded and ran a broadband service business with a partner, then handed it over on joining HCL Technologies.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="project" id="project">
-    <div class="wrap">
-      <div class="eyebrow">Selected project</div>
-      <h2>TailorlyRemote: remote job discovery and résumé tailoring</h2>
-      <p class="sub">An AI-assisted application that finds remote jobs open to candidates in India and tailors a Word résumé to each job without breaking its formatting or inventing claims. Founder and sole engineer; live in production.</p>
-      <div class="pgrid">
-        <ul>
-          <li><span><b>Product and architecture.</b> Designed, built and launched the application with .NET 10, React and TypeScript, PostgreSQL and Hangfire, a modular architecture and design documentation that includes 12 architecture decision records.</span></li>
-          <li><span><b>AI with document integrity.</b> Provider-agnostic LLM integration with model routing and structured output validation. OpenXML is used to edit .docx résumés in place, preserving formatting, with checks that block unsupported claims. The model returns edits only, and every change is a diff the user approves.</span></li>
-          <li><span><b>Engineering and security.</b> Automated tests, GitHub Actions, a typed OpenAPI client, authentication, rate limits and structured logging.</span></li>
-          <li><span><b>Production deployment.</b> AWS EC2 running Docker Compose behind Caddy with automatic TLS, access through Session Manager with no SSH, encrypted nightly PostgreSQL backups to S3, and email through AWS SES.</span></li>
-        </ul>
-        <div class="pbox">
-          <div><h3>Stack</h3><div class="chips"><span class="chip">.NET 10</span><span class="chip">ASP.NET Core</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Hangfire</span><span class="chip">OpenXML</span><span class="chip">Docker Compose</span><span class="chip">Caddy</span><span class="chip">GitHub Actions</span></div></div>
-          <div><h3>AWS</h3><div class="chips"><span class="chip">EC2</span><span class="chip">S3</span><span class="chip">SES</span><span class="chip">IAM</span><span class="chip">Systems Manager</span></div></div>
-          <div class="cta"><a class="btn primary" href="https://professional.tailorlyremote.com" rel="noopener">Live app ↗</a><a class="btn" href="https://github.com/siva-mareedu-fd/TailorlyRemote" rel="noopener">Source on GitHub ↗</a></div>
+    <div class="example" role="img" aria-label="Example of a daily shortlist entry with a résumé change and an estimated ATS score">
+      <div class="ex-head"><span class="mono">shortlist · 18:00 IST</span><span>Example</span></div>
+      <div class="ex-body">
+        <div class="ex-row">
+          <div class="ex-score">9</div>
+          <div>
+            <div class="ex-title">Senior Backend Engineer (.NET)</div>
+            <div class="ex-sub">Acme Cloud · Remote, APAC</div>
+            <div class="chips"><span class="chip ok">india_eligible</span><span class="chip">$60k–$90k</span><span class="chip">Source: Himalayas ↗</span></div>
+          </div>
         </div>
+        <div class="diff">
+          <div class="del"><span class="sign">−</span>Built REST APIs for the payments team.</div>
+          <div class="add"><span class="sign">+</span>Built REST APIs in .NET and PostgreSQL for the payments team.</div>
+        </div>
+        <div>
+          <div class="ats"><span>ATS match (estimated)</span><span class="mono">58 → <b>81</b></span></div>
+          <div class="bar2"><i></i></div>
+        </div>
+        <div class="ex-note">Illustrative example. Real scores depend on your résumé and the job.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sourcesbar" id="sources-strip">
+    <div class="wrap">
+      <b>Jobs sourced from</b>
+      <a href="https://himalayas.app" rel="noopener">Himalayas</a>
+      <a href="https://remoteok.com" rel="noopener">Remote OK</a>
+      <span>and company career boards on Greenhouse</span>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h2>From résumé to a shortlist in an evening</h2>
+      <p class="sub">Upload once, set what you want, and get a ranked list you can trust, with the reasons shown.</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3>Upload your résumé</h3><p>Add your Word (.docx) résumé. We read it once to understand your skills and experience, and you can correct anything we got wrong.</p></div>
+        <div class="step"><span class="n">02</span><h3>Get a daily shortlist</h3><p>Every evening, at the time you choose, you get new remote jobs that match your preferences, each with a fit score, the reasons, and whether candidates in India are accepted.</p></div>
+        <div class="step"><span class="n">03</span><h3>Tailor and apply</h3><p>Review a line-by-line diff of the changes we propose, accept only what you like, download the .docx, then apply on the employer’s page yourself.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="skills">
+  <section id="features" style="padding-top:0">
     <div class="wrap">
-      <div class="eyebrow">Skills</div>
-      <h2>What I work with</h2>
-      <p class="sub">Backend and architecture are my core; messaging, cloud and reliability are where most of my recent impact has come from.</p>
-      <div class="skill-grid">
-        <div class="card"><h3>Backend and architecture</h3><div class="chips"><span class="chip">C#</span><span class="chip">.NET 8/10</span><span class="chip">ASP.NET Core Web API</span><span class="chip">EF Core</span><span class="chip">REST / OpenAPI</span><span class="chip">Microservices</span><span class="chip">Event-driven architecture</span><span class="chip">Distributed systems</span><span class="chip">CQRS</span><span class="chip">Asynchronous processing</span></div></div>
-        <div class="card"><h3>Messaging and data</h3><div class="chips"><span class="chip">Apache Kafka</span><span class="chip">AWS SQS</span><span class="chip">RabbitMQ</span><span class="chip">Redis / Valkey</span><span class="chip">PostgreSQL</span><span class="chip">SQL Server</span><span class="chip">DynamoDB</span><span class="chip">MongoDB</span><span class="chip">OpenSearch</span></div></div>
-        <div class="card"><h3>Cloud and DevOps</h3><div class="chips"><span class="chip">AWS: EKS, EC2, S3, SQS, SES, Lambda, IAM</span><span class="chip">Azure</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">GitLab CI/CD</span><span class="chip">GitHub Actions</span></div></div>
-        <div class="card"><h3>Reliability and quality</h3><div class="chips"><span class="chip">Datadog APM</span><span class="chip">CloudWatch</span><span class="chip">Polly</span><span class="chip">Rate limiting</span><span class="chip">Backpressure</span><span class="chip">DLQs</span><span class="chip">Idempotency</span><span class="chip">SonarQube</span><span class="chip">Veracode</span><span class="chip">xUnit</span><span class="chip">Testcontainers</span></div></div>
-        <div class="card" style="grid-column: 1 / -1"><h3>Additional</h3><div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">LLM integration</span><span class="chip">Model-provider abstraction</span><span class="chip">OpenXML</span></div></div>
+      <div class="eyebrow">Features</div>
+      <h2>Built for developers who read the details</h2>
+      <p class="sub">Every score, flag and change comes with its evidence, so you can decide quickly and with confidence.</p>
+      <div class="features">
+        <div class="feat"><span class="k">eligibility</span><h3>Open to India, with evidence</h3><p>Many “remote” jobs exclude India. We show whether each role accepts candidates from India and quote the line from the listing that says so.</p></div>
+        <div class="feat"><span class="k">explained</span><h3>Matches with reasons</h3><p>A fit score from 1 to 10, the skills that matched, the skills that are missing, and how sure we are.</p></div>
+        <div class="feat"><span class="k">diff</span><h3>Résumé changes you approve</h3><p>We edit your own .docx in place, so fonts and layout stay the same. Every proposed change is a diff you accept or reject.</p></div>
+        <div class="feat"><span class="k">ats</span><h3>Estimated ATS match</h3><p>See how well your résumé matches a job’s requirements before and after tailoring. It is an estimate, and real systems vary.</p></div>
+        <div class="feat"><span class="k">tracker</span><h3>Application tracker</h3><p>A simple board from saved to offer. Move cards yourself, and keep your tailored files with each job.</p></div>
+        <div class="feat"><span class="k">prep</span><h3>Cover letters and interview prep</h3><p>Generate a concise or confident cover letter, and prep notes that use only experience from your résumé.</p></div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="band" id="trust">
     <div class="wrap">
-      <div class="eyebrow">Education and certification</div>
-      <h2 style="margin-bottom:24px">Education</h2>
-      <div class="edu">
-        <div class="card"><h3>B.Tech, Computer Science Engineering</h3><p>N.R.I Institute of Technology, Vijayawada · 2013</p></div>
-        <div class="card"><h3>Polytechnic, Computer Science Engineering</h3><p>C.R Polytechnic · 2010</p></div>
-        <div class="card"><h3>AWS Certified Developer – Associate</h3><p>Amazon Web Services (AWS)</p></div>
+      <div class="eyebrow">Honest by design</div>
+      <h2>It never invents facts about you</h2>
+      <p class="sub">A tailored résumé is only useful if every line is true. These rules are built into the product.</p>
+      <div class="trust">
+        <div><h3>Skills only when you confirm them</h3><p>If a job asks for something missing from your résumé, we ask you. A skill is added only if you say you have it.</p></div>
+        <div><h3>Numbers, employers and titles stay yours</h3><p>Proposed changes that add new numbers or names are flagged, and they stay off until you approve them.</p></div>
+        <div><h3>No auto-apply</h3><p>We never submit applications for you. Apply opens the original listing, and you submit it yourself.</p></div>
+        <div><h3>Estimates are labelled</h3><p>The ATS match is an estimate and is marked as one. We do not promise interviews or offers.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact" style="padding-top:24px">
+  <section id="sources">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">Sources and credits</div>
+        <h2>Jobs come from open, credited sources</h2>
+        <p class="sub" style="margin-bottom:0">We link every job back to where it was published and use the source’s own apply link.</p>
+      </div>
+      <div class="credit">
+        <h3>With thanks to</h3>
+        <p>Remote jobs from <a href="https://himalayas.app" rel="noopener"><b>Himalayas</b></a>, whose job data and API make this possible. We keep the Himalayas credit and link on every job it provides.</p>
+        <p>More remote listings from <a href="https://remoteok.com" rel="noopener"><b>Remote OK</b></a>, and open positions published on company career boards hosted on Greenhouse.</p>
+        <div class="src"><a href="https://himalayas.app" rel="noopener">himalayas.app ↗</a><a href="https://remoteok.com" rel="noopener">remoteok.com ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" style="padding-top:0">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">Your data</div>
+        <h2>Your résumé is yours</h2>
+        <p class="sub" style="margin-bottom:0">Plain rules about what happens to the document you upload.</p>
+      </div>
+      <ul class="tick">
+        <li><span>Your résumé is stored privately and is never shown to other users.</span></li>
+        <li><span>To create matches and documents, résumé text is processed by an AI provider (Anthropic). We say so at sign-up and ask for your consent.</span></li>
+        <li><span>You can delete a résumé, or your whole account, at any time, and the files are removed.</span></li>
+        <li><span>Backups are encrypted, and access to the app is protected by authenticated sessions and rate limits.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
     <div class="wrap">
-      <h2>Let’s talk</h2>
-      <p class="sub">I’m glad to discuss backend architecture, distributed systems, or what I learned building and running TailorlyRemote.</p>
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions people ask</h2>
+      <div style="margin-top:32px">
+        <details><summary>Who is Tailorly Remote for?</summary><p>Developers and other tech professionals based in India who want remote roles, including roles hiring worldwide. It focuses on jobs that accept candidates from India.</p></details>
+        <details><summary>Does it apply to jobs for me?</summary><p>No. It shortlists jobs and prepares your résumé and cover letter. You open the original listing and submit the application yourself.</p></details>
+        <details><summary>Which résumé formats work?</summary><p>Word (.docx). Editing the original file is how your formatting is preserved, so PDFs are not supported for upload.</p></details>
+        <details><summary>How accurate is the ATS score?</summary><p>It is an estimate of how well your résumé matches a specific job’s requirements, and it is labelled as one. Real applicant tracking systems differ.</p></details>
+        <details><summary>How do I get access?</summary><p>The product is in an invite-only beta. Email <a href="mailto:shiv.mareedu@tailorlyremote.com?subject=Tailorly%20Remote%20invite%20request">shiv.mareedu@tailorlyremote.com</a> to ask for an invite.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" style="padding-top:24px">
+    <div class="wrap">
+      <h2>Spend your evening applying, not searching</h2>
+      <p class="sub">Get a clear shortlist of remote roles and a résumé that fits each one.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:shiv.mareedu@gmail.com">shiv.mareedu@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/sivamareedu" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/siva-mareedu-fd" rel="noopener">GitHub ↗</a>
+        <a class="btn primary" href="https://professional.tailorlyremote.com" rel="noopener">Sign in</a>
+        <a class="btn" href="mailto:shiv.mareedu@tailorlyremote.com?subject=Tailorly%20Remote%20invite%20request">Ask for an invite</a>
       </div>
     </div>
   </section>
@@ -272,8 +322,8 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Siva Mareedu · Hyderabad, India</span>
-    <span>Built with the same design system as <a href="https://professional.tailorlyremote.com" rel="noopener">TailorlyRemote</a></span>
+    <span>© <span id="yr">2026</span> Tailorly Remote. Built by <a href="https://www.linkedin.com/in/sivamareedu" rel="noopener">Siva Mareedu</a>.</span>
+    <span>Job data from <a href="https://himalayas.app" rel="noopener">Himalayas</a> · <a href="https://remoteok.com" rel="noopener">Remote OK</a> · Greenhouse career boards</span>
   </div>
 </footer>
 
@@ -283,11 +333,11 @@
   var SUN = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
   var MOON = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
   function apply(t) { root.setAttribute('data-theme', t); document.getElementById('themeIcon').innerHTML = t === 'dark' ? SUN : MOON; }
-  var saved = null; try { saved = localStorage.getItem('portfolio-theme'); } catch (e) {}
+  var saved = null; try { saved = localStorage.getItem('tailorly-site-theme'); } catch (e) {}
   apply(saved === 'dark' ? 'dark' : 'light');
   document.getElementById('themeBtn').addEventListener('click', function () {
     var n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; apply(n);
-    try { localStorage.setItem('portfolio-theme', n); } catch (e) {}
+    try { localStorage.setItem('tailorly-site-theme', n); } catch (e) {}
   });
   document.getElementById('yr').textContent = new Date().getFullYear();
 })();
